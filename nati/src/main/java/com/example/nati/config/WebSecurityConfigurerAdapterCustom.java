@@ -14,9 +14,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
-@EnableWebSecurity
-@EnableResourceServer
-@Configuration
+
 public class WebSecurityConfigurerAdapterCustom extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -24,8 +22,7 @@ public class WebSecurityConfigurerAdapterCustom extends WebSecurityConfigurerAda
 
     @Autowired
     public void globalUserDetails(final AuthenticationManagerBuilder auth) throws Exception {
-        // @formatter:off
-        auth.inMemoryAuthentication().withUser("admin").password(passwordEncoder.encode("admin")).roles("USER");
+        auth.inMemoryAuthentication().withUser("administrador").password(passwordEncoder.encode("admin")).roles("USER");
     }
 
     @Override
@@ -36,13 +33,16 @@ public class WebSecurityConfigurerAdapterCustom extends WebSecurityConfigurerAda
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/categorias").permitAll().anyRequest().authenticated().and()
+        http.authorizeRequests()
+        .antMatchers("/alunos")
+        .permitAll().anyRequest()
+        .authenticated().and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf().disable();
 
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/categorias");
+        web.ignoring().antMatchers("/**");
     }
 }

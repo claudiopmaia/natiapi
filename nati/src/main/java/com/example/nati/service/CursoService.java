@@ -22,7 +22,6 @@ public class CursoService {
 	@Autowired
 	private DisciplinaRepository disciplinaRepository;
 	
-
 	public Curso salvar(@Valid Curso curso){
 		Optional<Disciplina> disciplinaCash = disciplinaRepository.findById(curso.getDisciplina().getCodigo());
 		

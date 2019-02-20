@@ -75,7 +75,7 @@
 		</dependency>
 		
 		
-		<!--  // dependecia para add blioteca para metamode-->
+		<!--  // dependecia para add BIblioteca para metamode-->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-jpamodelgen</artifactId>
