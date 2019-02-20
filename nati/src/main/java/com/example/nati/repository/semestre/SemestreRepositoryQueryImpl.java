@@ -16,10 +16,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
-import com.example.nati.model.Curso;
 import com.example.nati.model.Semestre;
 import com.example.nati.model.Semestre_;
-import com.example.nati.repository.filter.CursoFilter;
 import com.example.nati.repository.filter.SemestreFilter;
 
 public class SemestreRepositoryQueryImpl implements SemestreRepositoryQuery{

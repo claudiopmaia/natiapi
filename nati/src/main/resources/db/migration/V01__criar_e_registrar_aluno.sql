@@ -101,6 +101,120 @@ CREATE TABLE semestre (
 	
 	
 	
+-- Tabelas de USUARIO E PERMISSAO 
+	
+	CREATE TABLE usuario (
+		codigo BIGINT(20) PRIMARY KEY,
+		nome VARCHAR(50) NOT NULL,
+		email VARCHAR(50) NOT NULL,
+		senha VARCHAR(150) NOT NULL
+	)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE permissao (
+		codigo BIGINT(20) PRIMARY KEY,
+		descricao VARCHAR(50) NOT NULL
+	)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	
+CREATE TABLE usuario_permissao (
+		codigo_usuario BIGINT(20),
+		codigo_permissao BIGINT(20),
+		PRIMARY KEY (codigo_usuario, codigo_permissao),
+		FOREIGN KEY (codigo_usuario) REFERENCES usuario(codigo),
+		FOREIGN KEY (codigo_permissao) REFERENCES permissao(codigo)
+	)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+	INSERT INTO usuario (codigo, nome, email, senha) VALUES(1, 'Administrador', 'admin@natiapi.com', '21232f297a57a5a743894a0e4a801fc3');
+	INSERT INTO usuario (codigo, nome, email, senha) VALUES(2, 'Aluno', 'aluno@natiapi.com', '21232f297a57a5a743894a0e4a801fc3');
+	INSERT INTO usuario (codigo, nome, email, senha) VALUES(3, 'Professor', 'professor@natiapi.com', '21232f297a57a5a743894a0e4a801fc3');
+	INSERT INTO usuario (codigo, nome, email, senha) VALUES(4, 'Cordenador', 'cordenador@natiapi.com', '21232f297a57a5a743894a0e4a801fc3');
+
+	
+	INSERT INTO permissao (codigo, descricao) VALUES(1,'ROLE_CADASTRAR_ALUNO');
+	INSERT INTO permissao (codigo, descricao) VALUES(2,'ROLE_PESQUISAR_ALUNO');
+	INSERT INTO permissao (codigo, descricao) VALUES(3,'ROLE_REMOVER_ALUNO');
+	INSERT INTO permissao (codigo, descricao) VALUES(4,'ROLE_ATUALIZAR_ALUNO');
+	
+	INSERT INTO permissao (codigo, descricao) VALUES(5,'ROLE_CADASTRAR_PROFESSOR');
+	INSERT INTO permissao (codigo, descricao) VALUES(6,'ROLE_PESQUISAR_PROFESSOR');
+	INSERT INTO permissao (codigo, descricao) VALUES(7,'ROLE_REMOVER_PROFESSOR');
+	INSERT INTO permissao (codigo, descricao) VALUES(8,'ROLE_ATUALIZAR_PROFESSOR');
+	
+	INSERT INTO permissao (codigo, descricao) VALUES(9,'ROLE_CADASTRAR_DISCIPLINA');
+	INSERT INTO permissao (codigo, descricao) VALUES(10,'ROLE_PESQUISAR_DISCIPLINA');
+	INSERT INTO permissao (codigo, descricao) VALUES(11,'ROLE_REMOVER_DISCIPLINA');
+	INSERT INTO permissao (codigo, descricao) VALUES(12,'ROLE_ATUALIZAR_DISCIPLINA');
+	
+	INSERT INTO permissao (codigo, descricao) VALUES(13,'ROLE_CADASTRAR_CURSO');
+	INSERT INTO permissao (codigo, descricao) VALUES(14,'ROLE_PESQUISAR_CURSO');
+	INSERT INTO permissao (codigo, descricao) VALUES(15,'ROLE_REMOVER_CURSO');
+	INSERT INTO permissao (codigo, descricao) VALUES(16,'ROLE_ATUALIZAR_CURSO');
+	
+	INSERT INTO permissao (codigo, descricao) VALUES(17,'ROLE_CADASTRAR_MATRICULA');
+	INSERT INTO permissao (codigo, descricao) VALUES(18,'ROLE_PESQUISAR_MATRICULA');
+	INSERT INTO permissao (codigo, descricao) VALUES(19,'ROLE_REMOVER_MATRICULA');
+	INSERT INTO permissao (codigo, descricao) VALUES(20,'ROLE_ATUALIZAR_MATRICULA');
+	
+
+	-- Permissoes para o admin
+	
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 1);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 2);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 3);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 4);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 5);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 6);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 7);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 8);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 9);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 10);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 11);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 12);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 13);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 14);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 15);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 16);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 17);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 18);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 19);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(1, 20);
+	
+	-- Permissoes para o COORDENADOR
+	
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 1);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 2);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 3);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 4);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 5);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 6);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 7);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 8);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 9);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 10);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 11);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 12);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 13);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 14);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 15);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 16);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 17);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 18);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 19);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(4, 20);
+	
+	-- Permissoes para aluno
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(2, 1);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(2, 9);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(2, 14);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(2, 17);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(2, 20);
+	
+	-- Permissoes para Professor
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(3, 5);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(3, 6);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(3, 8);
+	INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) VALUES(3, 14);
+	
 	
 	
 	

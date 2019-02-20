@@ -29,15 +29,11 @@ public class CursoService {
 	private AlunoRepository alunoRepository;
 	
 	public Curso salvar(@Valid Curso curso){
-		Optional<Aluno> alunoCash = alunoRepository.findById(curso.getAluno().getCodigo());
 		Optional<Disciplina> disciplinaCash = disciplinaRepository.findById(curso.getDisciplina().getCodigo());
 		
 		if (!disciplinaCash.isPresent() ) {
 				throw new DisciplinaInexistenteException();			
 		}
-		if (!alunoCash.isPresent() ) {
-			throw new AlunoInexistenteException();			
-	}
 		
 		return cursoRepository.save(curso);
 	}

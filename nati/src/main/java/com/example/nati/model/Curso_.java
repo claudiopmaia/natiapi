@@ -9,7 +9,6 @@ import javax.persistence.metamodel.StaticMetamodel;
 public abstract class Curso_ {
 
 	public static volatile SingularAttribute<Curso, Long> codigo;
-	public static volatile SingularAttribute<Curso, Aluno> aluno;
 	public static volatile SingularAttribute<Curso, Disciplina> disciplina;
 	public static volatile SingularAttribute<Curso, String> nome;
 

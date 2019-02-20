@@ -1,52 +1,34 @@
 package com.example.nati.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "curso")
-public class Curso {
-	
+@Table(name = "permissao")
+public class Permissao {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long codigo;
 	
-	private String nome;
-		
-	@ManyToOne
-	@JoinColumn(name = "codigo_disciplina")
-	private  Disciplina disciplina;
-		
+	private String descricao;
+
 	public Long getCodigo() {
 		return codigo;
 	}
-	
+
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-	
-	public String getNome() {
-		return nome;
+
+	public String getDescricao() {
+		return descricao;
 	}
-	
-	public void setNome(String nome) {
-		this.nome = nome;
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
-		
-	
-	public Disciplina getDisciplina() {
-		return disciplina;
-	}
-	
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
-	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -54,7 +36,7 @@ public class Curso {
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -63,7 +45,7 @@ public class Curso {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Curso other = (Curso) obj;
+		Permissao other = (Permissao) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;
@@ -73,7 +55,4 @@ public class Curso {
 	}
 	
 	
-	
-	
-
 }
