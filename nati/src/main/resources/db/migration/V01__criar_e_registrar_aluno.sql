@@ -124,10 +124,10 @@ CREATE TABLE usuario_permissao (
 	)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-	INSERT INTO usuario (codigo, nome, email, senha) VALUES(1, 'Administrador', 'admin@natiapi.com', '21232f297a57a5a743894a0e4a801fc3');
-	INSERT INTO usuario (codigo, nome, email, senha) VALUES(2, 'Aluno', 'aluno@natiapi.com', '21232f297a57a5a743894a0e4a801fc3');
-	INSERT INTO usuario (codigo, nome, email, senha) VALUES(3, 'Professor', 'professor@natiapi.com', '21232f297a57a5a743894a0e4a801fc3');
-	INSERT INTO usuario (codigo, nome, email, senha) VALUES(4, 'Cordenador', 'cordenador@natiapi.com', '21232f297a57a5a743894a0e4a801fc3');
+	INSERT INTO usuario (codigo, nome, email, senha) VALUES(1, 'Administrador', 'admin@natiapi.com', '$2a$10$VPDLgJc0nhxI5lUVBZxe.ulW3IOZ8Ps9jNUmh9P0/5IfOecpYEoWi');
+	INSERT INTO usuario (codigo, nome, email, senha) VALUES(2, 'Aluno', 'aluno@natiapi.com', '$2a$10$VPDLgJc0nhxI5lUVBZxe.ulW3IOZ8Ps9jNUmh9P0/5IfOecpYEoWi');
+	INSERT INTO usuario (codigo, nome, email, senha) VALUES(3, 'Professor', 'professor@natiapi.com', '$2a$10$VPDLgJc0nhxI5lUVBZxe.ulW3IOZ8Ps9jNUmh9P0/5IfOecpYEoWi');
+	INSERT INTO usuario (codigo, nome, email, senha) VALUES(4, 'Cordenador', 'cordenador@natiapi.com', '$2a$10$VPDLgJc0nhxI5lUVBZxe.ulW3IOZ8Ps9jNUmh9P0/5IfOecpYEoWi');
 
 	
 	INSERT INTO permissao (codigo, descricao) VALUES(1,'ROLE_CADASTRAR_ALUNO');
