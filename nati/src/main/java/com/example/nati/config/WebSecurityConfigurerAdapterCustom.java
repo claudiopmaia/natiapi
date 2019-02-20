@@ -1,5 +1,6 @@
 package com.example.nati.config;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,5 +45,4 @@ public class WebSecurityConfigurerAdapterCustom extends WebSecurityConfigurerAda
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/categorias");
     }
-
 }

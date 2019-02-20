@@ -1,5 +1,6 @@
 package com.example.nati.config;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -25,7 +26,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	public void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests()
-		.antMatchers("/disciplinas").permitAll()
+		.antMatchers("/categorias").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.sessionManagement()
